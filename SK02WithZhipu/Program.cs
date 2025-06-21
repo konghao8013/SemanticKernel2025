@@ -15,27 +15,7 @@ public class Program
 
     static Kernel GetKernel()
     {
-        var key = File.ReadAllText("D:\\ai-apis\apikey.txt");
-        // Create kernel builder
-        var builder = Kernel.CreateBuilder();
-        // Add OpenAI chat completion
-        // builder.AddOpenAIChatCompletion(
-        //     modelId: "YOUR_MODEL_ID",
-        //     apiKey: "YOUR_API_KEY");
-        // Add Azure OpenAI chat completion
-        builder.AddAzureOpenAIChatCompletion(
-            deploymentName: "gpt-4o",
-            endpoint: "https://my-openapi.openai.azure.com/",
-            apiKey: key);
-        // Build kernel
-        var kernel = builder.Build();
-        return kernel;
-    }
-    static async Task TestStreamingChatMessage()
-    {
-        
-
-        var zhipuApiKey =File.ReadAllText("D:\\ai-apis\\zhipukey.txt");
+        var zhipuApiKey = File.ReadAllText("D:\\ai-apis\\zhipukey.txt");
         // zhipuApiKey = "ddddc01549175d4c18e65a70e0d8329d.jAFiuW3FfK5PbxuE";
 
         // Create kernel builder
@@ -49,6 +29,12 @@ public class Program
             endpoint: zhipuEndpoint);
         // Build kernel
         var kernel = builder.Build();
+        return kernel;
+    }
+    static async Task TestStreamingChatMessage()
+    {
+        
+        var kernel = GetKernel();
 
         var response = await kernel.InvokePromptAsync("介绍下智谱AI的产品和服务");
         Console.WriteLine(response.GetValue<String>());
