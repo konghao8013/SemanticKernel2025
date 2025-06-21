@@ -79,7 +79,7 @@ public class Program
     }
     static Kernel GetKernel()
     {
-        var key = File.ReadAllText("D:\\apikey.txt");
+        var key = File.ReadAllText("D:\\ai-apis\apikey.txt");
         // Create kernel builder
         var builder = Kernel.CreateBuilder();
         // Add OpenAI chat completion
