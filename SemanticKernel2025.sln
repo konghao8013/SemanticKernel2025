@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK05MultipleAi", "SK05Multi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK06DependencyInjection.", "SK06DependencyInjection\SK06DependencyInjection..csproj", "{FD9219F2-9129-416E-A192-2478F907DACC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prompt", "Prompt", "{5744D8EA-230C-4BF7-90AE-C7184B5E18F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
