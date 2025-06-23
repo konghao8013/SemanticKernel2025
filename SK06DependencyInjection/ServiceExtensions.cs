@@ -23,6 +23,11 @@ public static class ServiceExtensions
         }
         return services;
     }
+    /// <summary>
+    /// 添加日志输出
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
     public static IServiceCollection AddNLogging(this IServiceCollection services)
     {
         // 定义文件日志输出目标
