@@ -54,6 +54,24 @@ public class Program
             // response.Display();
         }
     }
+    static Kernel GetKernel()
+    {
+        var key = File.ReadAllText("D:\\ai-apis\apikey.txt");
+        // Create kernel builder
+        var builder = Kernel.CreateBuilder();
+        // Add OpenAI chat completion
+        // builder.AddOpenAIChatCompletion(
+        //     modelId: "YOUR_MODEL_ID",
+        //     apiKey: "YOUR_API_KEY");
+        // Add Azure OpenAI chat completion
+        builder.AddAzureOpenAIChatCompletion(
+            deploymentName: "gpt-4o",
+            endpoint: "https://my-openapi.openai.azure.com/",
+            apiKey: key);
+        // Build kernel
+        var kernel = builder.Build();
+        return kernel;
+    }
 
     static async Task TestStreamingChatMessage()
     {
@@ -77,24 +95,7 @@ public class Program
             Console.Write(chunk);
         }
     }
-    static Kernel GetKernel()
-    {
-        var key = File.ReadAllText("D:\\ai-apis\apikey.txt");
-        // Create kernel builder
-        var builder = Kernel.CreateBuilder();
-        // Add OpenAI chat completion
-        // builder.AddOpenAIChatCompletion(
-        //     modelId: "YOUR_MODEL_ID",
-        //     apiKey: "YOUR_API_KEY");
-        // Add Azure OpenAI chat completion
-        builder.AddAzureOpenAIChatCompletion(
-            deploymentName: "gpt-4o",
-            endpoint: "https://my-openapi.openai.azure.com/",
-            apiKey: key);
-        // Build kernel
-        var kernel = builder.Build();
-        return kernel;
-    }
+   
     static async Task English01()
     {
 

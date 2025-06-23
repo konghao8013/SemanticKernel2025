@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK02WithZhipu", "SK02WithZh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK03WithOpenAI", "SK03WithOpenAI\SK03WithOpenAI.csproj", "{00FB695E-C78C-4F5F-87F9-1ECD9B62A5FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneApi", "OneApi\OneApi.csproj", "{B5CB777F-5AF8-40AD-9247-226F6F9CBB76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{00FB695E-C78C-4F5F-87F9-1ECD9B62A5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00FB695E-C78C-4F5F-87F9-1ECD9B62A5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00FB695E-C78C-4F5F-87F9-1ECD9B62A5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5CB777F-5AF8-40AD-9247-226F6F9CBB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5CB777F-5AF8-40AD-9247-226F6F9CBB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5CB777F-5AF8-40AD-9247-226F6F9CBB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5CB777F-5AF8-40AD-9247-226F6F9CBB76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
