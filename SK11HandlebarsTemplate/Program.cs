@@ -103,4 +103,22 @@ history.Add(new ChatMessageContent(AuthorRole.User, request));
 history.Add(new ChatMessageContent(AuthorRole.Assistant, intent.ToString()));
 
 
+//延迟渲染
+
+//// Create the handlebars prompt template factory
+//var promptTemplateFactory = new HandlebarsPromptTemplateFactory();
+//// Create the semantic function from prompt template
+//var getIntentFunction = kernel.CreateFunctionFromPrompt(promptTemplateConfig, promptTemplateFactory);
+
+//var request = await PolyglotKernel.GetInputAsync("请输入：");
+//// Update request in kernel arguments
+//kernelArguments["request"] = request;
+//// Invoke prompt
+//var intent = await kernel.InvokeAsync(getIntentFunction, kernelArguments);
+//intent.Display();
+//// Append to history
+//history.AddUserMessage(request!);
+//history.AddAssistantMessage(intent.ToString());
+
+
 Console.WriteLine("Hello, World!");

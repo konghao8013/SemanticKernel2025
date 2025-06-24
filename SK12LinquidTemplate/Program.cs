@@ -82,12 +82,24 @@ var promptTemplateConfig = new PromptTemplateConfig()
     Name = "ContosoChatPrompt",
 };
 
-// Render the prompt
-var promptTemplate = templateFactory.Create(promptTemplateConfig);
-var renderedPrompt = await promptTemplate.RenderAsync(kernel, arguments);
+//// Render the prompt
+//var promptTemplate = templateFactory.Create(promptTemplateConfig);
+//var renderedPrompt = await promptTemplate.RenderAsync(kernel, arguments);
 
-Console.WriteLine($"Rendered Prompt: {renderedPrompt}");
+//Console.WriteLine($"Rendered Prompt: {renderedPrompt}");
 
+
+//// Invoke the prompt function
+//var function = kernel.CreateFunctionFromPrompt(renderedPrompt);
+//var response = await kernel.InvokeAsync(function);
+//Console.WriteLine(response);
+
+//延迟渲染调用
+
+// Invoke the prompt function
+var function = kernel.CreateFunctionFromPrompt(promptTemplateConfig, templateFactory);
+var response = await kernel.InvokeAsync(function, arguments);
+Console.WriteLine(response);
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
