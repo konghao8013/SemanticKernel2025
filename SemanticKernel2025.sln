@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK09DefinePrompt", "SK09Def
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK10PromptTemplate", "SK10PromptTemplate\SK10PromptTemplate.csproj", "{1879C3C5-F8BC-4C49-95F8-C1F4D418E15E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK11HandlebarsTemplate", "SK11HandlebarsTemplate\SK11HandlebarsTemplate.csproj", "{EF1B9936-ECB5-4746-B665-505805EA4B0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{1879C3C5-F8BC-4C49-95F8-C1F4D418E15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1879C3C5-F8BC-4C49-95F8-C1F4D418E15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1879C3C5-F8BC-4C49-95F8-C1F4D418E15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1B9936-ECB5-4746-B665-505805EA4B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1B9936-ECB5-4746-B665-505805EA4B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1B9936-ECB5-4746-B665-505805EA4B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1B9936-ECB5-4746-B665-505805EA4B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{B0274CBF-D94C-493C-8708-F073E908874D} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 		{2F7BD91B-4AAD-4791-A29E-34B811395643} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 		{1879C3C5-F8BC-4C49-95F8-C1F4D418E15E} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
+		{EF1B9936-ECB5-4746-B665-505805EA4B0B} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
