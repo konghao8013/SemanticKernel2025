@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36203.30
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QuickStart", "QuickStart", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01QuickStart", "01QuickStart", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK01QuickStart", "SK01\SK01QuickStart.csproj", "{E1D2D6EE-98B5-430A-9690-2ABC1ACF5C2E}"
 EndProject
@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK05MultipleAi", "SK05Multi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK06DependencyInjection.", "SK06DependencyInjection\SK06DependencyInjection..csproj", "{FD9219F2-9129-416E-A192-2478F907DACC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prompt", "Prompt", "{5744D8EA-230C-4BF7-90AE-C7184B5E18F5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02Prompt", "02Prompt", "{5744D8EA-230C-4BF7-90AE-C7184B5E18F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK08Prompt", "SK08Prompt\SK08Prompt.csproj", "{B0274CBF-D94C-493C-8708-F073E908874D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{FD9219F2-9129-416E-A192-2478F907DACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD9219F2-9129-416E-A192-2478F907DACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD9219F2-9129-416E-A192-2478F907DACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0274CBF-D94C-493C-8708-F073E908874D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0274CBF-D94C-493C-8708-F073E908874D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0274CBF-D94C-493C-8708-F073E908874D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0274CBF-D94C-493C-8708-F073E908874D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{B5CB777F-5AF8-40AD-9247-226F6F9CBB76} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{AAF17A78-EE15-4FDC-9163-E63025171BA9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{FD9219F2-9129-416E-A192-2478F907DACC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B0274CBF-D94C-493C-8708-F073E908874D} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
