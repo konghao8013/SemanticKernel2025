@@ -67,6 +67,7 @@ public static class ServiceExtensions
         // 初始化依赖注入容器
         var services = new ServiceCollection();
         services.AddNLogging();
+        //注册 AI服务提供商
         services.RegisterKernels();
         return services.BuildServiceProvider();
     }
