@@ -28,13 +28,22 @@ async Task Chat(string userPrompt)
 
 
 
-var prompt = "The weather today in {{ $location }} is {{GetForecast}}.";
+//var prompt = "The weather today in {{ $location }} is {{GetForecast}}.";
+
+//kernel.Plugins.Clear();
+//kernel.Plugins.AddFromType<WeatherPlugin>();
+
+//var res = await kernel.InvokePromptAsync(prompt, new() { ["location"] = "Shenzhen" });
+//Console.WriteLine($"AI Response: {res.GetValue<String>()}");
+
+
+var prompt = "The weather today in {{$city}} is {{GetForecast $city}}.";
 
 kernel.Plugins.Clear();
 kernel.Plugins.AddFromType<WeatherPlugin>();
 
-var res = await kernel.InvokePromptAsync(prompt, new() { ["location"] = "Shenzhen" });
-Console.WriteLine($"AI Response: {res.GetValue<String>()}");
 
+var res = await kernel.InvokePromptAsync(prompt, new() { ["city"] = "Shenzhen" });
+Console.WriteLine($"AI Response: {res.GetValue<String>()}");
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
