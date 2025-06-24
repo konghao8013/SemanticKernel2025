@@ -52,26 +52,40 @@ async Task Chat(string userPrompt)
 //Console.WriteLine($"AI Response: {response.Content}");
 
 
-var prompt = """
-请使用 Emoji 风格编辑以下段落，该风格以引人入胜的标题、每个段落中包含表情符号和在末尾添加相关标签为特点。
-请确保保持原文的意思。
-{{ $article }}
-""";
-// 参数配置
-PromptExecutionSettings settings = new OpenAIPromptExecutionSettings()
-{
-    Temperature = 1,
-    TopP = 1,
-    FrequencyPenalty = 0,
-    PresencePenalty = 0
-};
+//var prompt = """
+//请使用 Emoji 风格编辑以下段落，该风格以引人入胜的标题、每个段落中包含表情符号和在末尾添加相关标签为特点。
+//请确保保持原文的意思。
+//{{ $article }}
+//""";
+//// 参数配置
+//PromptExecutionSettings settings = new OpenAIPromptExecutionSettings()
+//{
+//    Temperature = 1,
+//    TopP = 1,
+//    FrequencyPenalty = 0,
+//    PresencePenalty = 0
+//};
 
-var rewriteFunction = kernel.CreateFunctionFromPrompt(prompt, settings);
-var article = """
-9月6日16时20分，今年第11号超强台风“摩羯”在海南文昌沿海登陆。超强台风“摩羯”风力有多大？记者只能“抱团”出镜。
-""";
+//var rewriteFunction = kernel.CreateFunctionFromPrompt(prompt, settings);
+//var article = """
+//9月6日16时20分，今年第11号超强台风“摩羯”在海南文昌沿海登陆。超强台风“摩羯”风力有多大？记者只能“抱团”出镜。
+//""";
 
-var rewriteResult = await kernel.InvokeAsync(rewriteFunction, new() { ["article"] = article });
- Console.WriteLine($"AI Response: {rewriteResult.GetValue<string>()}");
+//var rewriteResult = await kernel.InvokeAsync(rewriteFunction, new() { ["article"] = article });
+// Console.WriteLine($"AI Response: {rewriteResult.GetValue<string>()}");
+var kernelPlugins = kernel.CreatePluginFromPromptDirectory("Prompts");
 
+var article = @"9月6日16时20分，今年第11号超强台风“摩羯”在海南文昌沿海登陆。超强台风“摩羯”风力有多大？记者只能“抱团”出镜。";
+
+var result = await kernel.InvokeAsync(kernelPlugins["RewriteRedBookStyle"], new() { ["article"] = article });
+Console.WriteLine($"AI Response: {result.GetValue<string>()}");
+
+//var prompt = await File.ReadAllTextAsync("Prompts/RewriteEmojiStyle/rewirtewithemoji.yaml");
+
+//var rewriteFunction = kernel.CreateFunctionFromPromptYaml(prompt);
+
+//var article = @"9月6日16时20分，今年第11号超强台风“摩羯”在海南文昌沿海登陆。超强台风“摩羯”风力有多大？记者只能“抱团”出镜。";
+
+//var result = await kernel.InvokeAsync(rewriteFunction, new() { ["article"] = article });
+//Console.WriteLine($"AI Response: {result.GetValue<string>()}");
 Console.WriteLine("Hello, World!");
