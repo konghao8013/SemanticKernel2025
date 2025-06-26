@@ -55,26 +55,49 @@ kernel.ImportPluginFromFunctions("HelperFunctions",
 
 
 
-kernel.Plugins.Clear();
-kernel.ImportPluginFromFunctions("TodoPlugin",
-        [
-            kernel.CreateFunctionFromMethod((Kernel kernel) =>{
-                
-                Console.WriteLine(kernel.Data["CurrentUserId"]);
-                var userId = kernel.Data["CurrentUserId"];
-                if (userId is "shengjie")
-                {
-                    return new List<string> { "Buy groceries", "Walk the dog", "Write a blog post" };
-                }
-                return [];
-            }, "GetTodoList", " Gets the todo list."),
-        ]);
+//kernel.Plugins.Clear();
+//kernel.ImportPluginFromFunctions("TodoPlugin",
+//        [
+//            kernel.CreateFunctionFromMethod((Kernel kernel) =>{
 
-kernel.AutoFunctionInvocationFilters.Clear();
+//                Console.WriteLine(kernel.Data["CurrentUserId"]);
+//                var userId = kernel.Data["CurrentUserId"];
+//                if (userId is "shengjie")
+//                {
+//                    return new List<string> { "Buy groceries", "Walk the dog", "Write a blog post" };
+//                }
+//                return [];
+//            }, "GetTodoList", " Gets the todo list."),
+//        ]);
+
+//kernel.AutoFunctionInvocationFilters.Clear();
+//kernel.FunctionInvocationFilters.Clear();
+//kernel.FunctionInvocationFilters.Add(new ContextEnhancementFilter());
+//OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+//var response = await kernel.InvokePromptAsync("What need I do next?", new(settings));
+
+//Console.WriteLine($"AI Response: {response.GetValue<string>()}");
+
+
+
+kernel.Plugins.Clear();
+kernel.ImportPluginFromFunctions("DynamicsPlugin",
+[
+   kernel.CreateFunctionFromMethod( (string userName, string skuId, int qty) =>
+   {
+       var orderId = Guid.NewGuid().ToString();
+       Console.WriteLine("System > Creating order...");
+       Console.WriteLine($"System > Order created! The order ID is {orderId}");
+       return $"Order {orderId} created!";
+   }, "create_order", "Create an order for a given SKU and quantity")
+]); ;
+
 kernel.FunctionInvocationFilters.Clear();
-kernel.FunctionInvocationFilters.Add(new ContextEnhancementFilter());
+kernel.FunctionInvocationFilters.Add(new ApprovalFilter());
+
 OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
-var response = await kernel.InvokePromptAsync("What need I do next?", new(settings));
+var response = await kernel.InvokePromptAsync("Please place an order for Jery. She would like to purchase one iPhone16.", new(settings));
 
 Console.WriteLine($"AI Response: {response.GetValue<string>()}");
+
 Console.WriteLine("Hello, World!");
