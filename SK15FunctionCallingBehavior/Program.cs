@@ -30,11 +30,25 @@ kernel.ImportPluginFromFunctions("HelperFunctions",
         ]);
 
 // See https://aka.ms/new-console-template for more information
-OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
-var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Boston today?", new(settings));
+//OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+//var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Boston today?", new(settings));
 
 
-Console.WriteLine(response.GetValue<string>());
+//Console.WriteLine(response.GetValue<string>());
 
+
+
+string promptTemplateConfig = """
+            template_format: semantic-kernel
+            template: What is the likely color of the sky in Boston today?
+            execution_settings:
+              default:
+                function_choice_behavior:
+                  type: auto
+            """;
+
+KernelFunction promptFunction = KernelFunctionYaml.FromPromptYaml(promptTemplateConfig);
+
+Console.WriteLine(await kernel.InvokeAsync(promptFunction));
 
 Console.WriteLine("Hello, World!");
