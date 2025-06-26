@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03Plugin", "03Plugin", "{72
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK14Plugin", "SK14Plugin\SK14Plugin.csproj", "{D924FBF7-9E0D-4107-A9BE-9C99A589A095}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK15FunctionCallingBehavior", "SK15FunctionCallingBehavior\SK15FunctionCallingBehavior.csproj", "{780E6C94-ACFA-419C-9B6E-536208FA10B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{D924FBF7-9E0D-4107-A9BE-9C99A589A095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D924FBF7-9E0D-4107-A9BE-9C99A589A095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D924FBF7-9E0D-4107-A9BE-9C99A589A095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780E6C94-ACFA-419C-9B6E-536208FA10B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780E6C94-ACFA-419C-9B6E-536208FA10B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780E6C94-ACFA-419C-9B6E-536208FA10B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780E6C94-ACFA-419C-9B6E-536208FA10B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{E0A14C6C-E40E-46E2-BCC4-C02C31A0873F} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 		{DB7825AB-0674-4517-9FF1-70DA9F316A5B} = {5744D8EA-230C-4BF7-90AE-C7184B5E18F5}
 		{D924FBF7-9E0D-4107-A9BE-9C99A589A095} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
+		{780E6C94-ACFA-419C-9B6E-536208FA10B9} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
