@@ -24,7 +24,7 @@ namespace SK16FunctionFilter
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Function invocation failed: {ex.Message}");
+                Console.WriteLine($"函数调用错误: {ex.Message}");
                 context.Result = new FunctionResult(context.Result, "Function invocation failed. Please check...");
             }
         }

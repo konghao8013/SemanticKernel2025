@@ -1,10 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using HandlebarsDotNet;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using SK16FunctionFilter;
 using SK16FunctionFilter;
+using SK16FunctionFilter.Filters;
+using System.Text.Json;
 
 Console.WriteLine("请输入AI服务提供商编码：");
 var aiProviderCode = Console.ReadLine();
@@ -32,10 +35,20 @@ kernel.ImportPluginFromFunctions("HelperFunctions",
                 }, "GetWeatherForCity", "Gets the current weather for the specified city and specified date time."),
         ]);
 
-kernel.FunctionInvocationFilters.Clear();
-kernel.FunctionInvocationFilters.Add(new ExceptionHandleFilter());
-OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
-var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Beijing today?", new(settings));
+//kernel.FunctionInvocationFilters.Clear();
+//kernel.FunctionInvocationFilters.Add(new ExceptionHandleFilter());
+//OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+//var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Beijing today?", new(settings));
 
-Console.WriteLine($"AI Response: {response.GetValue<string>()}");
+//Console.WriteLine($"AI Response: {response.GetValue<string>()}");
+
+
+kernel.AutoFunctionInvocationFilters.Clear();
+kernel.AutoFunctionInvocationFilters.Add(new FunctionCallsAuditFilter());
+OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Boston today?", new(settings));
+
+
+
+Console.WriteLine(response.GetValue<string>());
 Console.WriteLine("Hello, World!");
