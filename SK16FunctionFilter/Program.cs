@@ -43,12 +43,38 @@ kernel.ImportPluginFromFunctions("HelperFunctions",
 //Console.WriteLine($"AI Response: {response.GetValue<string>()}");
 
 
+//kernel.AutoFunctionInvocationFilters.Clear();
+//kernel.AutoFunctionInvocationFilters.Add(new FunctionCallsAuditFilter());
+//OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+//var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Boston today?", new(settings));
+
+
+
+//Console.WriteLine(response.GetValue<string>());
+
+
+
+
+kernel.Plugins.Clear();
+kernel.ImportPluginFromFunctions("TodoPlugin",
+        [
+            kernel.CreateFunctionFromMethod((Kernel kernel) =>{
+                
+                Console.WriteLine(kernel.Data["CurrentUserId"]);
+                var userId = kernel.Data["CurrentUserId"];
+                if (userId is "shengjie")
+                {
+                    return new List<string> { "Buy groceries", "Walk the dog", "Write a blog post" };
+                }
+                return [];
+            }, "GetTodoList", " Gets the todo list."),
+        ]);
+
 kernel.AutoFunctionInvocationFilters.Clear();
-kernel.AutoFunctionInvocationFilters.Add(new FunctionCallsAuditFilter());
+kernel.FunctionInvocationFilters.Clear();
+kernel.FunctionInvocationFilters.Add(new ContextEnhancementFilter());
 OpenAIPromptExecutionSettings settings = new() { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
-var response = await kernel.InvokePromptAsync("What is the likely color of the sky in Boston today?", new(settings));
+var response = await kernel.InvokePromptAsync("What need I do next?", new(settings));
 
-
-
-Console.WriteLine(response.GetValue<string>());
+Console.WriteLine($"AI Response: {response.GetValue<string>()}");
 Console.WriteLine("Hello, World!");
