@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK17FunctionCallingLog", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK18FunctionCallingReturn", "SK18FunctionCallingReturn\SK18FunctionCallingReturn.csproj", "{D7405EBF-A16F-4C90-9F0E-6A7834BDE4FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK19Stuctured", "SK19Stuctured\SK19Stuctured.csproj", "{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{D7405EBF-A16F-4C90-9F0E-6A7834BDE4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7405EBF-A16F-4C90-9F0E-6A7834BDE4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7405EBF-A16F-4C90-9F0E-6A7834BDE4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +145,7 @@ Global
 		{20D73DFF-ACC9-4AD1-9683-F599F4C94A30} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
 		{212F6548-7C9E-4FAD-B181-684AB5B63829} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
 		{D7405EBF-A16F-4C90-9F0E-6A7834BDE4FC} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
+		{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE} = {72C08472-7ACC-4674-82DE-24B8AE6DEA89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
