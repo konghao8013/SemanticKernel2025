@@ -14,10 +14,14 @@ public class OpenAiRegister : AiProviderRegister
         {
             return;
         }
-        var logger=provider.GetRequiredService<ILoggerFactory>().CreateLogger<OpenAiHttpClientHandler>();
+        var logger = provider.GetRequiredService<ILoggerFactory>().CreateLogger<OpenAiHttpClientHandler>();
         var httpClient = new HttpClient(new OpenAiHttpClientHandler(logger));
 
-        builder.AddOpenAIChatCompletion(modelId: chatModelId, apiKey: aiProvider.ApiKey,httpClient: httpClient);
+        builder.AddOpenAIChatCompletion(
+            modelId: chatModelId,
+            apiKey: aiProvider.ApiKey,
+            endpoint: new Uri(aiProvider.ApiEndpoint)
+            , httpClient: httpClient);
     }
 
     [Experimental("SKEXP0010")]

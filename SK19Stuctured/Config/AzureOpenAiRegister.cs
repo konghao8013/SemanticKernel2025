@@ -30,11 +30,11 @@ public class AzureOpenAiRegister : AiProviderRegister
             endpoint: aiProvider.ApiEndpoint,
             apiKey: aiProvider.ApiKey,
             httpClient: httpClient);
-        builder.AddAzureOpenAIChatCompletion(
-            deploymentName: modelId,
-            endpoint: aiProvider.ApiEndpoint,
-            apiKey: aiProvider.ApiKey,
-            httpClient: httpClient);
+        //builder.AddAzureOpenAIChatCompletion(
+        //    deploymentName: modelId,
+        //    endpoint: aiProvider.ApiEndpoint,
+        //    apiKey: aiProvider.ApiKey,
+        //    httpClient: httpClient);
     }
 
     [Experimental("SKEXP0010")]
