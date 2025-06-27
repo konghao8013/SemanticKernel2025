@@ -37,3 +37,6 @@
 /SK19Stuctured/obj
 /SK19Stuctured/appsettings.json
 /SK19Stuctured/bin/Debug/net9.0
+/SK20PluginBasic/bin/Debug/net9.0
+/SK20PluginBasic/obj
+*.json
