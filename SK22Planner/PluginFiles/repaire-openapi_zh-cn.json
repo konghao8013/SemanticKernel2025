@@ -1,0 +1,211 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "维修服务",
+        "description": "一个简单的服务，用于管理各种物品的维修",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://piercerepairsapi.azurewebsites.net/"
+        }
+    ],
+    "paths": {
+        "/repairs": {
+            "get": {
+                "operationId": "listRepairs",
+                "summary": "查询维修列表",
+                "description": "查询维修列表",
+                "parameters": [
+                    {
+                        "name": "assignedTo",
+                        "in": "query",
+                        "description": "按分配对象过滤维修列表",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功响应",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "description": "维修的唯一标识符"
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "description": "维修的简短摘要"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "description": "维修的详细描述"
+                                            },
+                                            "assignedTo": {
+                                                "type": "string",
+                                                "description": "负责维修的用户"
+                                            },
+                                            "date": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "description": "维修计划或完成的日期和时间"
+                                            },
+                                            "image": {
+                                                "type": "string",
+                                                "format": "uri",
+                                                "description": "要维修的物品或维修过程的图片 URL"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "createRepair",
+                "summary": "创建新的维修",
+                "description": "添加具有给定详细信息和图片 URL 的新维修到列表中",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "description": "维修的简短摘要"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "维修的详细描述"
+                                    },
+                                    "assignedTo": {
+                                        "type": "string",
+                                        "description": "负责维修的用户"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "维修计划或完成的日期和时间（可选）"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "要维修的物品或维修过程的图片 URL"
+                                    }
+                                },
+                                "required": [
+                                    "title",
+                                    "description",
+                                    "assignedTo"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "成功响应，表示维修已创建"
+                    }
+                }
+            },
+            "patch": {
+                "operationId": "updateRepair",
+                "summary": "更新现有维修",
+                "description": "使用新的更新详细信息和图片 URL 更新现有维修",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "description": "要更新的维修的唯一标识符"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "description": "维修的简短摘要"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "维修的详细描述"
+                                    },
+                                    "assignedTo": {
+                                        "type": "string",
+                                        "description": "负责维修的用户"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "维修计划或完成的日期和时间"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "要维修的物品或维修过程的图片 URL"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "维修已更新"
+                    },
+                    "404": {
+                        "description": "未找到维修"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "deleteRepair",
+                "summary": "删除现有维修",
+                "description": "使用其 ID 从列表中删除现有维修",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "description": "要删除的维修的唯一标识符"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "维修已删除"
+                    },
+                    "404": {
+                        "description": "未找到维修"
+                    }
+                }
+            }
+        }
+    }
+}

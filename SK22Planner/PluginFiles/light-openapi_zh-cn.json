@@ -1,0 +1,139 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+       "title": "灯光 API",
+       "version": "v1"
+    },
+    "paths": {
+       "/Light": {
+          "get": {
+             "summary": "检索系统中的所有灯光。",
+             "operationId": "get_all_lights",
+             "responses": {
+                "200": {
+                   "description": "返回灯光列表及其当前状态",
+                   "content": {
+                           "application/json": {
+                               "schema": {
+                                   "type": "array",
+                                   "items": {
+                                       "$ref": "#/components/schemas/LightStateModel"
+                                   }
+                               }
+                           }
+                       }
+                }
+             }
+          }
+       },
+       "/Light/{id}": {
+          "post": {
+                "summary": "更改灯光的状态。",
+                "operationId": "change_light_state",
+                "parameters": [
+                   {
+                      "name": "id",
+                      "in": "path",
+                      "description": "要更改的灯光的 ID。",
+                      "required": true,
+                      "style": "simple",
+                      "schema": {
+                            "type": "string"
+                      }
+                   }
+                ],
+                "requestBody": {
+                   "description": "灯光的新状态和更改参数。",
+                   "content": {
+                      "application/json": {
+                            "schema": {
+                               "$ref": "#/components/schemas/ChangeStateRequest"
+                            }
+                      }
+                   }
+                },
+                "responses": {
+                   "200": {
+                      "description": "返回更新后的灯光状态",
+                      "content": {
+                            "application/json": {
+                               "schema": {
+                                  "$ref": "#/components/schemas/LightStateModel"
+                               }
+                            }
+                      }
+                   },
+                   "404": {
+                      "description": "如果未找到灯光"
+                   }
+                }
+          }
+       }
+    },
+    "components": {
+       "schemas": {
+          "ChangeStateRequest": {
+                "type": "object",
+                "properties": {
+                   "isOn": {
+                      "type": "boolean",
+                      "description": "指定灯光是否打开。",
+                      "nullable": true
+                   },
+                   "hexColor": {
+                      "type": "string",
+                      "description": "灯光的十六进制颜色代码。",
+                      "nullable": true
+                   },
+                   "brightness": {
+                      "type": "integer",
+                      "description": "灯光的亮度级别。",
+                      "format": "int32",
+                      "nullable": true
+                   },
+                   "fadeDurationInMilliseconds": {
+                      "type": "integer",
+                      "description": "灯光淡入到新状态的持续时间，以毫秒为单位。",
+                      "format": "int32",
+                      "nullable": true
+                   },
+                   "scheduledTime": {
+                      "type": "string",
+                      "description": "使用 ScheduledTime 同步灯光。建议您异步为每个计划的灯光创建任务，以避免阻塞主线程。",
+                      "format": "date-time",
+                      "nullable": true
+                   }
+                },
+                "additionalProperties": false,
+                "description": "表示更改灯光状态的请求。"
+          },
+          "LightStateModel": {
+                "type": "object",
+                "properties": {
+                   "id": {
+                      "type": "string",
+                      "nullable": true
+                   },
+                   "name": {
+                      "type": "string",
+                      "nullable": true
+                   },
+                   "on": {
+                      "type": "boolean",
+                      "nullable": true
+                   },
+                   "brightness": {
+                      "type": "integer",
+                      "format": "int32",
+                      "nullable": true
+                   },
+                   "hexColor": {
+                      "type": "string",
+                      "nullable": true
+                   }
+                },
+                "additionalProperties": false
+          }
+       }
+    }
+}
