@@ -45,7 +45,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK18FunctionCallingReturn",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK19Stuctured", "SK19Stuctured\SK19Stuctured.csproj", "{F222BC0A-1549-4AC1-A7BC-5AAE8CD810DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK20PluginBasic", "SK20PluginBasic\SK20PluginBasic.csproj", "{74C2B593-C8D0-4798-A9FB-36247E293B01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK20OpenApiPluginBasic", "SK20PluginBasic\SK20OpenApiPluginBasic.csproj", "{74C2B593-C8D0-4798-A9FB-36247E293B01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
