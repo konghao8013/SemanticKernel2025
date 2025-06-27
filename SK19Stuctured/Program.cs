@@ -32,7 +32,7 @@ var executionSettings = new OpenAIPromptExecutionSettings
 };
 
 // Send a request and pass prompt execution settings with desired response format.
-var result = await kernel.InvokePromptAsync("有史以来最受欢迎的五大香港电影,需要五个?", new(executionSettings));
+var result = await kernel.InvokePromptAsync("有史以来最受欢迎的五大香港电影", new(executionSettings));
 Console.WriteLine(result.ToString());
 
 
