@@ -42,3 +42,5 @@
 *.json
 /SK20PluginBasic/appsettings.json
 /SK22Planner/obj
+/SK24ChatCompletion/bin/Debug/net9.0
+/SK24ChatCompletion/obj
