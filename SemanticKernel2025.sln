@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK24ChatCompletion", "SK24C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK27OpenAiAssistantAgent", "SK27OpenAiAssistantAgent\SK27OpenAiAssistantAgent.csproj", "{265C7103-A2C7-4D39-87F0-EA6728987005}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK32AgentHanddoff", "SK32AgentHanddoff\SK32AgentHanddoff.csproj", "{6DE08329-551B-4613-8D9C-8A39178C695E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{265C7103-A2C7-4D39-87F0-EA6728987005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{265C7103-A2C7-4D39-87F0-EA6728987005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{265C7103-A2C7-4D39-87F0-EA6728987005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE08329-551B-4613-8D9C-8A39178C695E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE08329-551B-4613-8D9C-8A39178C695E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE08329-551B-4613-8D9C-8A39178C695E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE08329-551B-4613-8D9C-8A39178C695E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +184,7 @@ Global
 		{AB7CC465-567C-43B8-89DB-E663F4834B2D} = {3C568809-B62B-46D2-B120-37F16BBA4652}
 		{4BFE28C7-0013-4069-9728-2F8E425E3E42} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
 		{265C7103-A2C7-4D39-87F0-EA6728987005} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
+		{6DE08329-551B-4613-8D9C-8A39178C695E} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
