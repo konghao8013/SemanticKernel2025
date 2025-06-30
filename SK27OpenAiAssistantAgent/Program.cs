@@ -18,6 +18,8 @@ using OpenAI.Files;
 using SK14Plugin.Plugins;
 using SK27OpenAiAssistantAgent.Models;
 using System.ClientModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var kernel = ServiceExtensions.GetKernel("azure-openai");
 
@@ -253,13 +255,24 @@ ChatCompletionAgent entityAgent = CreateAgent(
 );
 
 #pragma warning disable SKEXP0110 
+#pragma warning disable SKEXP0110 
+
+
+var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
+// 创建一个结构化输出转换器，用于将每个代理的响应转换为统一的分析结果
+StructuredOutputTransform<Analysis> transform = new(
+    service: chatCompletionService,
+    executionSettings: new OpenAIPromptExecutionSettings { ResponseFormat = typeof(Analysis) });
+
+
 ChatHistory history = [];
+
 var orchestration =
-    new ConcurrentOrchestration(topicAgent, sentimentAgent, entityAgent)
+    new ConcurrentOrchestration<string, Analysis>(topicAgent, sentimentAgent, entityAgent)
     {
         Name = "ArticleAnalysisOrchestration",
         Description = "依次分析文章的主题、情感和实体信息。",
-        // ResultTransform = transform.TransformAsync,
+        ResultTransform = transform.TransformAsync,
         // 设置每个阶段的响应回调
         ResponseCallback = (ChatMessageContent response) => {
             // 输出每个阶段的响应
@@ -269,13 +282,8 @@ var orchestration =
     };
 
 
-#pragma warning disable SKEXP0110 
 
-var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
-// 创建一个结构化输出转换器，用于将每个代理的响应转换为统一的分析结果
-StructuredOutputTransform<Analysis> transform = new(
-    service: chatCompletionService,
-    executionSettings: new OpenAIPromptExecutionSettings { ResponseFormat = typeof(Analysis) });
+
 
 InProcessRuntime runtime = new InProcessRuntime();
 await runtime.StartAsync();
@@ -288,8 +296,9 @@ var result = await orchestration.InvokeAsync(
     runtime: runtime);
 
 var output = await result.GetValueAsync(TimeSpan.FromSeconds(60));
-foreach (var item in output)
-{
-    Console.WriteLine(item);
-}
+Console.WriteLine(JsonSerializer.Serialize(output));
+//foreach (var item in output)
+//{
+//    Console.WriteLine(item);
+//}
 Console.WriteLine("Hello, World!");
