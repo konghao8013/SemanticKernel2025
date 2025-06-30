@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK32AgentHanddoff", "SK32Ag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK33AgentGroupChat", "SK33AgentGroupChat\SK33AgentGroupChat.csproj", "{BF5AA01C-27A8-440B-8F34-5093AC15EEE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SK35AgentContextualFunctions", "SK35AgentContextualFunctions\SK35AgentContextualFunctions.csproj", "{C30FF514-9C2F-406A-B018-00D1280D01E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +165,10 @@ Global
 		{BF5AA01C-27A8-440B-8F34-5093AC15EEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5AA01C-27A8-440B-8F34-5093AC15EEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5AA01C-27A8-440B-8F34-5093AC15EEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30FF514-9C2F-406A-B018-00D1280D01E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30FF514-9C2F-406A-B018-00D1280D01E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30FF514-9C2F-406A-B018-00D1280D01E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30FF514-9C2F-406A-B018-00D1280D01E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +198,7 @@ Global
 		{265C7103-A2C7-4D39-87F0-EA6728987005} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
 		{6DE08329-551B-4613-8D9C-8A39178C695E} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
 		{BF5AA01C-27A8-440B-8F34-5093AC15EEE8} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
+		{C30FF514-9C2F-406A-B018-00D1280D01E4} = {FD1C0E8E-B296-4C60-AD6B-46F633D46FFC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6C75271-A8A2-4A2A-A94D-2CF48177B269}
