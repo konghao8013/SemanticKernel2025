@@ -2,8 +2,10 @@
 using Microsoft.SemanticKernel;
 using NLog.Extensions.Logging;
 using NLog.Targets;
+using OpenAI.Files;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +72,33 @@ public static class ServiceExtensions
         //注册 AI服务提供商
         services.RegisterKernels();
         return services.BuildServiceProvider();
+    }
+
+
+
+    public static async Task DownloadFileContentAsync(OpenAIFileClient fileClient, string fileId, bool launchViewer = false)
+    {
+        OpenAIFile fileInfo = fileClient.GetFile(fileId);
+        if (fileInfo.Purpose == FilePurpose.AssistantsOutput)
+        {
+            string filePath = Path.Combine(Path.GetTempPath(), Path.GetFileName(fileInfo.Filename));
+            if (launchViewer)
+            {
+                filePath = Path.ChangeExtension(filePath, ".png");
+            }
+            BinaryData content = await fileClient.DownloadFileAsync(fileId);
+            File.WriteAllBytes(filePath, content.ToArray());
+            Console.WriteLine($"  File #{fileId} saved to: {filePath}");
+            if (launchViewer)
+            {
+                Process.Start(
+                    new ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = $"/C start {filePath}"
+                    });
+            }
+        }
     }
 }
 
