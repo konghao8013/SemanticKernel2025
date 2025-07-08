@@ -29,7 +29,7 @@
     <None Update="Config\appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Config\KM_Architecture .pdf">
+    <None Update="Config\KM_Architecture.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Config\KM_Overview.pdf">
