@@ -54,3 +54,7 @@
 /SK35AgentContextualFunctions/obj
 /SK36BingTextSearch/bin/Debug/net9.0
 /SK36BingTextSearch/obj
+/SK40KmPluginForSK/bin/Debug/net9.0/Config/.env
+/SK40KmPluginForSK/bin/Debug/net9.0
+/SK40KmPluginForSK/Config/.env
+/SK40KmPluginForSK/obj
